@@ -5,26 +5,38 @@ def deli(a, b):
     if b == 0: return "Napaka: Deljenje z 0 ni dovoljeno!"
     return a / b
 
+zgodovina = []
+
 while True:
-    print("\n--- MINI KALKULATOR ---")
-    print("1: Sestevanje | 2: Odstevanje | 3: Mnozenje | 4: Deljenje | 0: Izhod")
-    izbira = input("Vnesi izbiro (0-4): ")
+    print("\n--- MINI KALKULATOR (KonÄna verzija) ---")
+    print("1: + | 2: - | 3: * | 4: / | 0: Izhod")
+    izbira = input("Izbira: ")
 
     if izbira == "0":
-        print("Zapiranje programa... Nasvidenje!")
+        print("Nasvidenje!")
         break
 
     if izbira in ["1", "2", "3", "4"]:
-        x = float(input("Prvo število: "))
-        y = float(input("Drugo število: "))
+        x = float(input("Prvo stevilo: "))
+        y = float(input("Drugo stevilo: "))
 
         if izbira == "1":
-            print(f"==> IZRACUN: {x} + {y} = {sestej(x, y)}")
+            res = sestej(x, y)
+            izpis = f"{x} + {y} = {res}"
         elif izbira == "2":
-            print(f"==> IZRACUN: {x} - {y} = {odstej(x, y)}")
+            res = odstej(x, y)
+            izpis = f"{x} - {y} = {res}"
         elif izbira == "3":
-            print(f"==> IZRACUN: {x} * {y} = {pomnozi(x, y)}")
+            res = pomnozi(x, y)
+            izpis = f"{x} * {y} = {res}"
         elif izbira == "4":
-            print(f"==> IZRACUN: {x} / {y} = {deli(x, y)}")
+            res = deli(x, y)
+            izpis = f"{x} / {y} = {res}"
+
+        print(f"==> REZULTAT: {izpis}")
+        zgodovina.append(izpis)
+        
+        # Prikaz zgodovine (zadnji 3 elementi)
+        print(f"Zgodovina (zadnji 3): {zgodovina[-3:]}")
     else:
-        print("Neveljavna izbira, poskusi ponovno.")
+        print("Neveljavna izbira.")
