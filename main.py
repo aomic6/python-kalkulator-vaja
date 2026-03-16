@@ -1,40 +1,30 @@
-def sestej(a, b):
-    return a + b
-
-def odstej(a, b):
-    return a - b
-
-def pomnozi(a, b):
-    return a * b
-
+def sestej(a, b): return a + b
+def odstej(a, b): return a - b
+def pomnozi(a, b): return a * b
 def deli(a, b):
-    if b == 0:
-        return "Napaka: Deljenje z nic ni dovoljeno!"
+    if b == 0: return "Napaka: Deljenje z 0 ni dovoljeno!"
     return a / b
 
-print("Pozdrav! Mini kalkulator")
-print("1 = seštevanje")
-print("2 = odštevanje")
-print("3 = množenje")
-print("4 = deljenje")
+while True:
+    print("\n--- MINI KALKULATOR ---")
+    print("1: Sestevanje | 2: Odstevanje | 3: Mnozenje | 4: Deljenje | 0: Izhod")
+    izbira = input("Vnesi izbiro (0-4): ")
 
-izbira = input("Kaj želiš narediti? (1 ali 2): ")
+    if izbira == "0":
+        print("Zapiranje programa... Nasvidenje!")
+        break
 
-if izbira == "1":
-    x = float(input("Prvo število: "))
-    y = float(input("Drugo število: "))
-    print(f"Rezultat: {sestej(x, y)}")
-elif izbira == "2":
-    x = float(input("Prvo število: "))
-    y = float(input("Drugo število: "))
-    print(f"Rezultat: {odstej(x, y)}")
-elif izbira == "3":
-    x = float(input("Prvo število: "))
-    y = float(input("Drugo število: "))
-    print(f"Rezultat: {pomnozi(x, y)}")
-elif izbira == "4":
-    x = float(input("Prvo število: "))
-    y = float(input("Drugo število: "))
-    print(f"Rezultat: {deli(x, y)}")
-else:
-    print("Neveljavna izbira!")
+    if izbira in ["1", "2", "3", "4"]:
+        x = float(input("Prvo število: "))
+        y = float(input("Drugo število: "))
+
+        if izbira == "1":
+            print(f"==> IZRACUN: {x} + {y} = {sestej(x, y)}")
+        elif izbira == "2":
+            print(f"==> IZRACUN: {x} - {y} = {odstej(x, y)}")
+        elif izbira == "3":
+            print(f"==> IZRACUN: {x} * {y} = {pomnozi(x, y)}")
+        elif izbira == "4":
+            print(f"==> IZRACUN: {x} / {y} = {deli(x, y)}")
+    else:
+        print("Neveljavna izbira, poskusi ponovno.")
